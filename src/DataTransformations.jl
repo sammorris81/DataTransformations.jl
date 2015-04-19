@@ -17,9 +17,9 @@ end
 
 # we include the translog function for using log(θ) to use a Normal random
 # walk candidate when θ ∈ [0, Inf]
-function translog(x::Real, inv::Bool=false)
-  @assert x >= 0
+function translog(x::Real, support::Vector, inv::Bool=false)
   if !inv
+    @assert x >= 0
     return log(x)
   else
     return exp(x)
